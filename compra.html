@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chequeo de compra</title>
+    <script defer src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="js/products.js"></script>
+    <script defer src="js/compra.js"></script>
+</head>
+
+<body class="container-fluid">
+    <header>
+        <div class="row">
+            <div class="col-lg-12 col-12">
+                <h1 class="display-5 text-center mt-5 fw-bolder text-light">TU LISTA DE PRODUCTOS</h1>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="row">
+            <div class="col-lg-12 col-12">
+                <a href="index.html"><button type="button" class="btn btn-secondary btn-lg mt-2 border-white">Seguir
+                        comprando</button></a>
+            </div>
+        </div>
+        <div class="cVacio" id="cVacio">
+        <!-- <div class="row text-center">
+            <div class="col-lg-12 col-12">
+                <h2>EL CARRITO ESTA VACIO</h2>
+                <h3>🛒</h3>
+            </div>
+        </div> -->
+    </div>
+        
+        <div class="row justify-content-center pt-5">
+            <div class="col-lg-9 col-12">
+                <table class="table table-striped">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th scope="col">#</th>
+                                <th scope="col">Producto</th>
+                                <th scope="col">Precio</th>
+                                <th scope="col">Eliminar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <!--  <tr>
+                        <th scope="row">1</th>
+                        <td>Mark</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                      </tr> -->
+                        </tbody>
+                    </table>
+                </table>
+            </div>
+        </div>
+        <div class="row text-end">
+            <div class="col-lg-9 col-12">
+                <button type="button" class="btn btn-secondary btn-lg mt-2 border-white"
+                    id="botonComprar">Comprar</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
