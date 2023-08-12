@@ -2,6 +2,7 @@ const numeradorCarrito = document.querySelector("span#cantC")
 const contenedor = document.querySelector("div#contenedor.contenedor")
 const logoCarrito = document.getElementById("logCarrito")
 const barraBusqueda = document.querySelector("input")
+const URL = "js/productos.json"
 
 logoCarrito.addEventListener("mouseover", () => {
     logoCarrito.title = "Carrito"
@@ -69,6 +70,12 @@ barraBusqueda.addEventListener("search", () => {
     obtenerProductos(resultado)
 })
 
+function traerItems() {
+    fetch(URL)
+    .then((response)=> response.json())
+    .then((data)=> listaDeProductos.push(...data))
+    .then(()=>obtenerProductos(listaDeProductos))
+    .catch((error)=> console.error("Se produjo un error", error))
+}
 
-
-
+traerItems()

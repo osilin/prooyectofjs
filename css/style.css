@@ -16,4 +16,7 @@ a {
     flex-direction: row;
 }
 
+.btonX {
+    cursor: pointer;
+}
 

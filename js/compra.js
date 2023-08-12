@@ -6,7 +6,7 @@ function agruparCarrito(prod) {
                 <th scope="row">${prod.cod}</th>
                 <td>${prod.nombre}</td>
                 <td>$ ${prod.precio.toLocaleString()}</td>
-                <td>❌</td>
+                <td id="${prod.cod}" class="btonX">❌</td>
             </tr>`
 }
 
@@ -17,8 +17,13 @@ function mostrarCarVacio() {
                     <h3>🛒</h3>
                 </div>
             </div>`
-
 }
+
+function agregarBotonQuitar() {
+    const crucesQuitar = document.querySelectorAll("td.btonX")
+    console.log(crucesQuitar)
+}
+//11.09
 
 function armarCarrito() {
     tabla.innerHTML = ""
