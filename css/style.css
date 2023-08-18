@@ -1,7 +1,6 @@
 * {
     padding: 0;
     margin: 0;
-    background-color: rgb(66, 132, 197);
 }
 
 i {
@@ -10,10 +9,6 @@ i {
 
 a {
     text-decoration: none;
-}
-
-.contenedor {display: flex;
-    flex-direction: row;
 }
 
 .btonX {
