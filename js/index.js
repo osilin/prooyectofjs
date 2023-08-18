@@ -30,14 +30,16 @@ function retornarProdsDeHTML(producto) {
 </div>`
 }
 
+
+
 function mandarACarrito() {
     const botones = document.querySelectorAll("button.btn.btn-secondary.btn-lg")
     botones.forEach((boton) => {
         boton.addEventListener("click", () => {
             let producto = listaDeProductos.find((prod) => prod.cod === parseInt(boton.id))
             carritoDeProductos.push(producto)
-            localStorage.setItem("CarritoDeProductos", JSON.stringify(carritoDeProductos))
-           // console.table(carritoDeProductos)
+            guardarEnCarrito()
+            // console.table(carritoDeProductos)
             visualizarNumCarrito()
             Toastify({
                 text: `Agregado al carrito: ${producto.nombre}`,
@@ -47,9 +49,9 @@ function mandarACarrito() {
                 position: "right", // `left`, `center` or `right`
                 stopOnFocus: true, // Prevents dismissing of toast on hover
                 style: {
-                  background: "linear-gradient(to right, rgb(66, 132, 197), rgb(66, 132, 197))",
+                    background: "linear-gradient(to right, rgb(66, 132, 197), rgb(66, 132, 197))",
                 }
-              }).showToast();
+            }).showToast();
         })
     })
 }
@@ -71,10 +73,10 @@ barraBusqueda.addEventListener("search", () => {
 
 function traerItems() {
     fetch("js/productos.json")
-    .then((response)=> response.json())
-    .then((data)=> listaDeProductos.push(...data))
-    .then(()=>obtenerProductos(listaDeProductos))
-    .catch((error)=> alert("Se produjo un error" + error))
+        .then((response) => response.json())
+        .then((data) => listaDeProductos.push(...data))
+        .then(() => obtenerProductos(listaDeProductos))
+        .catch((error) => alert("Se produjo un error" + error))
 }
 
 traerItems()

@@ -14,16 +14,26 @@ function agruparCarrito(prod) {
 
 function agregarBotonQuitar() {
     const crucesQuitar = document.querySelectorAll("td.btonX")
-    console.log(crucesQuitar)
+    crucesQuitar.forEach((quitarCruz) => {
+        quitarCruz.addEventListener("click", () => {
+            let cod = parseInt(quitarCruz.id)
+            let index = carritoDeProductos.findIndex((prod) => prod.cod === cod)
+            carritoDeProductos.splice(index, 1)
+            armarCarrito()
+            guardarEnCarrito()
+        })
+    })
 }
-//11.09
+
 
 function armarCarrito() {
     tabla.innerHTML = ""
-    carritoDeProductos.length > 0
+    if (carritoDeProductos.length > 0) {
         carritoDeProductos.forEach((prod) => {
             tabla.innerHTML += agruparCarrito(prod)
+            agregarBotonQuitar()
         })
+    }
 }
 
 armarCarrito()
