@@ -16,7 +16,7 @@ carritoDeProductos.length > 0 && visualizarNumCarrito()
 
 function retornarProdsDeHTML(producto) {
     return `<div class="row justify-content-center">
-        <div class="col-lg-9 col-12 mt-5">
+        <div class="col-lg-3 col-12 mt-5">
       <div class="card">
           <img src=${producto.imagen} class="card-img-top img-thumbnail img-fluid"
               alt="vela de soja Pecera">

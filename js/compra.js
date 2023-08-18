@@ -19,20 +19,33 @@ function agregarBotonQuitar() {
             let cod = parseInt(quitarCruz.id)
             let index = carritoDeProductos.findIndex((prod) => prod.cod === cod)
             carritoDeProductos.splice(index, 1)
-            armarCarrito()
             guardarEnCarrito()
+            armarCarrito()
+            
         })
     })
 }
 
+function calcularTotalCarrito() {
+    let total = 0
+    for (const prod of carritoDeProductos) {
+        total += prod.precio
+    }
+    return total
+}
 
 function armarCarrito() {
     tabla.innerHTML = ""
     if (carritoDeProductos.length > 0) {
         carritoDeProductos.forEach((prod) => {
             tabla.innerHTML += agruparCarrito(prod)
-            agregarBotonQuitar()
         })
+        tabla.innerHTML += `<tr>
+            <th colspan="3" class="text-end">Total:</th>
+            <td>$ ${calcularTotalCarrito().toLocaleString()}</td>
+        </tr>`
+
+        agregarBotonQuitar()
     }
 }
 
