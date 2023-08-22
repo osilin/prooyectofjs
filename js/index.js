@@ -15,19 +15,15 @@ carritoDeProductos.length > 0 && visualizarNumCarrito()
 
 
 function retornarProdsDeHTML(producto) {
-    return `<div class="row justify-content-center">
-        <div class="col-lg-3 col-12 mt-5">
-      <div class="card">
-          <img src=${producto.imagen} class="card-img-top img-thumbnail img-fluid"
-              alt="vela de soja Pecera">
-          <div class="card-body text-center bg-dark">
-              <h5 class="card-title text-light fs-3 fw-bolder">${producto.nombre}</h5>
-              <p class="card-text fs-4 text-light mt-5 fw-bolder">$ ${producto.precio}</p>
-              <button type="button" class="btn btn-secondary btn-lg mt-2 border-white" id="${producto.cod}">Agregar al carrito</button>
-          </div>
-      </div>
-  </div>
-</div>`
+    return `<div class="card">
+                    <img src=${producto.imagen} class="card-img-top img-thumbnail img-fluid"
+                    alt="vela de soja Pecera">
+                    <div class="card-body text-center bg-dark">
+                        <h5 class="card-title text-light fs-3 fw-bolder">${producto.nombre}</h5>
+                        <p class="card-text fs-4 text-light mt-5 fw-bolder">$ ${producto.precio}</p>
+                        <button type="button" class="btn btn-secondary btn-lg mt-2 border-white" id="${producto.cod}">Agregar al carrito</button>
+                    </div>
+                </div>`
 }
 
 
@@ -58,11 +54,25 @@ function mandarACarrito() {
 
 function obtenerProductos(lista) {
     contenedor.innerHTML = ""
-    lista.forEach((producto) => {
-        contenedor.innerHTML += retornarProdsDeHTML(producto)
-    })
-    mandarACarrito()
+
+    for (let i = 0; i < lista.length; i += 3) {
+        const row = document.createElement("div")
+        row.classList.add("row", "justify-content-center")
+
+        for (let j = i; j < i + 3 && j < lista.length; j++) {
+            const producto = lista[j]
+            const col = document.createElement("div")
+            col.classList.add("col-lg-4", "col-md-6", "col-12", "mt-5");
+            col.innerHTML = retornarProdsDeHTML(producto)
+            row.appendChild(col)
+        }
+
+        contenedor.appendChild(row)
+    }
+
+    mandarACarrito();
 }
+
 obtenerProductos(listaDeProductos)
 
 barraBusqueda.addEventListener("search", () => {

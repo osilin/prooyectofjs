@@ -21,7 +21,7 @@ function agregarBotonQuitar() {
             carritoDeProductos.splice(index, 1)
             guardarEnCarrito()
             armarCarrito()
-            
+
         })
     })
 }
